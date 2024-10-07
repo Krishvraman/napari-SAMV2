@@ -1,30 +1,14 @@
 name: napari-SAMV2
 display_name: Segment Anything V2
 # use 'hidden' to remove plugin from napari hub search results
-visibility: public
+visibility: hidden
 # see https://napari.org/stable/plugins/manifest.html for valid categories
-categories: ["Annotation", "Segmentation", "Acquisition"]
+categories: ["Annotation", "Segmentation"]
 contributions:
   commands:
-    - id: napari-SAMV2.make_container_widget
-      python_name: napari_samv2:ImageThreshold
-      title: Make threshold Container widget
-    - id: napari-SAMV2.make_magic_widget
-      python_name: napari_samv2:threshold_magic_widget
-      title: Make threshold magic widget
-    - id: napari-SAMV2.make_function_widget
-      python_name: napari_samv2:threshold_autogenerate_widget
-      title: Make threshold function widget
     - id: napari-SAMV2.make_qwidget
-      python_name: napari_samv2:ExampleQWidget
-      title: Make example QWidget
+      python_name: napari_samv2:SAMV2_min
+      title: SAM V2 plugin
   widgets:
-    - command: napari-SAMV2.make_container_widget
-      display_name: Container Threshold
-    - command: napari-SAMV2.make_magic_widget
-      display_name: Magic Threshold
-    - command: napari-SAMV2.make_function_widget
-      autogenerate: true
-      display_name: Autogenerate Threshold
     - command: napari-SAMV2.make_qwidget
-      display_name: Example QWidget
+      display_name: SAMV2
