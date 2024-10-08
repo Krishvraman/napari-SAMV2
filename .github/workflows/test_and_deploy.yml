@@ -23,8 +23,8 @@ jobs:
     timeout-minutes: 30
     strategy:
       matrix:
-        platform: []
-        python-version: []
+        platform: [ubuntu-latest, windows-latest, macos-latest]
+        python-version: ["3.9", "3.10", "3.11", "3.12"]
 
     steps:
       - uses: actions/checkout@v4
@@ -68,7 +68,6 @@ jobs:
     # this will run when you have tagged a commit, starting with "v*"
     # and requires that you have put your twine API key in your
     # github secrets (see readme for details)
-    needs: [test]
     runs-on: ubuntu-latest
     if: contains(github.ref, 'tags')
     steps:
