@@ -14,6 +14,30 @@ You can install `napari-SAMV2` via [pip]:
     pip install napari-SAMV2
 
 
+Pre-requisite of samv2 installation needed:
+
+    git clone https://github.com/facebookresearch/segment-anything-2.git
+    cd segment-anything-2
+    pip install -e .
+
+******
+The plugin and installation tested with python 3.10 in conda environment with pytorch-cuda=12.1
+
+If you are installing samv2 in a separate environment, you can follow the below tested env,
+
+    conda create -n samv2_env python=3.10
+    conda activate samv2_env
+    conda install pytorch torchvision torchaudio pytorch-cuda=12.1 -c pytorch -c nvidia
+    python -m pip install "napari[all]"
+
+    git clone https://github.com/facebookresearch/segment-anything-2.git
+    cd segment-anything-2
+    pip install -e .
+
+    pip install napari-SAMV2    
+
+*****
+
 To install latest development version :
 
     pip install git+https://github.com/Krishvraman/napari-SAMV2.git
@@ -25,11 +49,20 @@ Middle mouse click - positive point
 
 Ctrl + Middle mouse click - negative point
 
+Example Data from :
+
+Cell tracking challenge - https://celltrackingchallenge.net/ 
+
+FlyEM project - https://www.janelia.org/project-team/flyem/hemibrain
+
+Time Series Segmentation :
+
+https://github.com/user-attachments/assets/610ce965-bb97-453f-8fff-c5de5f14162c
 
 
+Volume Segmentation :
 
-
-
+https://github.com/user-attachments/assets/adb409be-c3ba-4f03-ac0a-ceb2da0c0c83
 
 
 ## License
