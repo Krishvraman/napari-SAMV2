@@ -2,6 +2,7 @@
 import os
 
 import napari
+import requests
 from pipelines.samv2.Samv2_pipeline_handler import SamV2_pipeline
 from qtpy import uic
 from qtpy.QtWidgets import (
@@ -111,33 +112,60 @@ class SAMV2_min(QWidget):
         self.interdir_lineedt.setText(str(dname))
 
     # Initialize pipeline
+    BASE_URL = "https://dl.fbaipublicfiles.com/segment_anything_2/072824/"
+    CHECKPOINTS = {
+        "sam2_hiera_tiny": "sam2_hiera_tiny.pt",
+        "sam2_hiera_small": "sam2_hiera_small.pt",
+        "sam2_hiera_base_plus": "sam2_hiera_base_plus.pt",
+        "sam2_hiera_large": "sam2_hiera_large.pt",
+    }
+
     def initialize_pipeline(self):
         script_dir = os.path.dirname(__file__)
-        if self.model_cbbox.currentText() == "sam2_hiera_large":
-            model_cfg = "sam2_hiera_l.yaml"
-            sam2_checkpoint = os.path.join(
-                script_dir, "..", "model", "sam2_hiera_large.pt"
-            )
-            self.pipeline_object = SamV2_pipeline(
-                self.viewer, self, sam2_checkpoint, model_cfg
+
+        model_map = {
+            "sam2_hiera_large": ("sam2_hiera_l.yaml", "sam2_hiera_large.pt"),
+            "sam2_hiera_small": ("sam2_hiera_s.yaml", "sam2_hiera_small.pt"),
+            "sam2_hiera_tiny": ("sam2_hiera_t.yaml", "sam2_hiera_tiny.pt"),
+        }
+
+        selected_model = self.model_cbbox.currentText()
+
+        if selected_model in model_map:
+            model_cfg, checkpoint_name = model_map[selected_model]
+            checkpoint_path = os.path.join(
+                script_dir, "..", "model", checkpoint_name
             )
 
-        elif self.model_cbbox.currentText() == "sam2_hiera_small":
-            model_cfg = "sam2_hiera_s.yaml"
-            sam2_checkpoint = os.path.join(
-                script_dir, "..", "model", "sam2_hiera_small.pt"
-            )
-            self.pipeline_object = SamV2_pipeline(
-                self.viewer, self, sam2_checkpoint, model_cfg
-            )
+            # Check if the checkpoint file exists
+            if not os.path.exists(checkpoint_path):
+                print(
+                    f"Checkpoint {checkpoint_name} not found. Downloading..."
+                )
+                self.download_checkpoint(checkpoint_name, checkpoint_path)
 
-        elif self.model_cbbox.currentText() == "sam2_hiera_tiny":
-            model_cfg = "sam2_hiera_t.yaml"
-            sam2_checkpoint = os.path.join(
-                script_dir, "..", "model", "sam2_hiera_tiny.pt"
-            )
             self.pipeline_object = SamV2_pipeline(
-                self.viewer, self, sam2_checkpoint, model_cfg
+                self.viewer, self, checkpoint_path, model_cfg
+            )
+        else:
+            print("Model not recognized.")
+
+    def download_checkpoint(self, checkpoint_name, checkpoint_path):
+        url = self.BASE_URL + checkpoint_name
+
+        try:
+            response = requests.get(url, stream=True)
+            response.raise_for_status()  # Check if the download was successful
+
+            with open(checkpoint_path, "wb") as f:
+                for chunk in response.iter_content(chunk_size=1024):
+                    if chunk:
+                        f.write(chunk)
+            print(f"{checkpoint_name} downloaded successfully.")
+
+        except requests.exceptions.RequestException as e:
+            print(
+                f"Failed to download {checkpoint_name} from {url}. Error: {e}"
             )
 
     def on_mouse_click(self, layer, event):
