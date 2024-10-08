@@ -1,25 +1,11 @@
 # napari-SAMV2
 
-[![License BSD-3](https://img.shields.io/pypi/l/napari-SAMV2.svg?color=green)](https://github.com/Krishvraman/napari-SAMV2/raw/main/LICENSE)
-[![PyPI](https://img.shields.io/pypi/v/napari-SAMV2.svg?color=green)](https://pypi.org/project/napari-SAMV2)
-[![Python Version](https://img.shields.io/pypi/pyversions/napari-SAMV2.svg?color=green)](https://python.org)
-[![tests](https://github.com/Krishvraman/napari-SAMV2/workflows/tests/badge.svg)](https://github.com/Krishvraman/napari-SAMV2/actions)
-[![codecov](https://codecov.io/gh/Krishvraman/napari-SAMV2/branch/main/graph/badge.svg)](https://codecov.io/gh/Krishvraman/napari-SAMV2)
-[![napari hub](https://img.shields.io/endpoint?url=https://api.napari-hub.org/shields/napari-SAMV2)](https://napari-hub.org/plugins/napari-SAMV2)
+Napari plugin to use segment anything version 2 models from Meta.
 
-Napari plugin for segment anything version 2 model from meta. Plugin primarily useful for segmenting 3d volumetric data or 3d time series data. 
+Plugin primarily made for segmenting 3d volumetric data or 3d time series data.
 
 ----------------------------------
 
-This [napari] plugin was generated with [Cookiecutter] using [@napari]'s [cookiecutter-napari-plugin] template.
-
-<!--
-Don't miss the full getting started guide to set up your new package:
-https://github.com/napari/cookiecutter-napari-plugin#getting-started
-
-and review the napari docs for plugin developers:
-https://napari.org/stable/plugins/index.html
--->
 
 ## Installation
 
@@ -28,21 +14,30 @@ You can install `napari-SAMV2` via [pip]:
     pip install napari-SAMV2
 
 
-
 To install latest development version :
 
     pip install git+https://github.com/Krishvraman/napari-SAMV2.git
 
 
-## Contributing
+## Usage
 
-Contributions are very welcome. Tests can be run with [tox], please ensure
-the coverage at least stays the same before you submit a pull request.
+Middle mouse click - positive point
+
+Ctrl + Middle mouse click - negative point
+
+
+
+
+
+
+
 
 ## License
 
 Distributed under the terms of the [BSD-3] license,
 "napari-SAMV2" is free and open source software
+
+
 
 ## Issues
 
