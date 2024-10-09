@@ -49,20 +49,23 @@ Middle mouse click - positive point
 
 Ctrl + Middle mouse click - negative point
 
-Example Data from :
-
-Cell tracking challenge - https://celltrackingchallenge.net/ 
-
-FlyEM project - https://www.janelia.org/project-team/flyem/hemibrain
-
 Time Series Segmentation :
 
-https://github.com/user-attachments/assets/610ce965-bb97-453f-8fff-c5de5f14162c
+![samv2_time_series_demo](https://github.com/user-attachments/assets/078ca2bb-3016-4257-ac7c-c3cde8f9d125)
+
 
 
 Volume Segmentation :
 
-https://github.com/user-attachments/assets/adb409be-c3ba-4f03-ac0a-ceb2da0c0c83
+![samv2_volume_segmentation](https://github.com/user-attachments/assets/af05fcc4-a60d-44e8-ae05-70764d96e828)
+
+
+
+Reference :
+
+Example Data from in demo videos from,
+Cell tracking challenge - https://celltrackingchallenge.net/ 
+FlyEM project - https://www.janelia.org/project-team/flyem/hemibrain
 
 
 ## License
