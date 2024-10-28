@@ -9,7 +9,7 @@ Plugin primarily made for segmenting 3d volumetric data or 3d time series data.
 
 ## Installation
 
-Pre-requisite of samv2 installation needed: --- Our current plugin supports only sam v 2.0  not 2.1.   So, we need to pull the SAM repo from meta around september 15 ,2024 (last update of SAM2.0)
+Pre-requisite of samv2 installation needed: --- Our current plugin supports only sam v 2.0  not 2.1.   So, we need to pull the SAM repo around september 15 ,2024 (last update of SAM2.0)
 
     git clone https://github.com/facebookresearch/segment-anything-2.git
     cd segment-anything-2
