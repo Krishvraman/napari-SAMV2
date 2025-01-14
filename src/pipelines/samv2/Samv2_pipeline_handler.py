@@ -114,9 +114,8 @@ class SamV2_pipeline(QWidget):
             )
             labels = np.array([neg_or_pos], np.int32)
             existing_val = self.prompts[ann_obj_id]
-            self.prompts[ann_obj_id] = existing_val.append(
-                [ann_frame_idx, points, labels]
-            )
+            existing_val.append([ann_frame_idx, points, labels])
+            self.prompts[ann_obj_id] = existing_val
 
         # print(labels,points,ann_frame_idx)
 
@@ -124,7 +123,7 @@ class SamV2_pipeline(QWidget):
         layer = self.viewer.layers[layer_name]
         label_layer_data = layer.data
 
-        _, out_obj_ids, out_mask_logits = self.predictor.add_new_points(
+        _, out_obj_ids, out_mask_logits = self.predictor.add_new_points_or_box(
             inference_state=self.inference_state,
             frame_idx=ann_frame_idx,
             obj_id=ann_obj_id,
