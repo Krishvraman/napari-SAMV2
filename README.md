@@ -1,52 +1,42 @@
 # napari-SAMV2
 
-Napari plugin to use segment anything version 2 models from Meta.
+Napari plugin to use segment anything version 2.1 models from Meta.
 
-Plugin primarily made for segmenting 3d volumetric data or 3d time series data.
+Plugin made for segmenting 3d volumetric data or 3d time series data.
 
 ----------------------------------
 
-
 ## Installation
 
-Pre-requisite of samv2 installation needed: --- Our current plugin supports only sam v 2.0  not 2.1.   So, we need to pull the SAM repo around september 15 ,2024 (last update of SAM2.0)
+The plugin requires the following pre-requisite to be installed :
 
-    git clone https://github.com/facebookresearch/segment-anything-2.git
-    cd segment-anything-2
-    git rev-list -n 1 --before="2024-09-15" HEAD
-    git checkout <commit_hash>
-    pip install -e .
+1. Python and pytorch versions
 
-You can install `napari-SAMV2` via [pip]:
+python>=3.10,torch>=2.5.1 and torchvision>=0.20.1 required
 
-    pip install napari-SAMV2
+To install pytorch with your respective OS please visit - https://pytorch.org/get-started/locally/
 
-******
+2. SAM v2 installation from meta
 
-The plugin and installation tested with python 3.10 in conda environment with pytorch-cuda=12.1
+Please refer https://github.com/facebookresearch/sam2
 
-conda environment with example :
+Following is a sample conda environment installation with the above pre-req 
 
     conda create -n samv2_env python=3.10
     conda activate samv2_env
-    conda install pytorch torchvision torchaudio pytorch-cuda=12.1 -c pytorch -c nvidia
-    python -m pip install "napari[all]"
+    pip3 install torch torchvision
 
-    git clone https://github.com/facebookresearch/segment-anything-2.git
-    cd segment-anything-2
-    git rev-list -n 1 --before="2024-09-15" HEAD
-    
-    git checkout <commit_hash>
+    git clone https://github.com/facebookresearch/sam2.git && cd sam2
     pip install -e .
-    pip install napari-SAMV2    
 
-*****
+    pip install napari-SAMV2
+
 
 ## Usage
 
-Middle mouse click - positive point
+Middle mouse click - positive point or keyboard shortcut "a"
 
-Ctrl + Middle mouse click - negative point
+Ctrl + Middle mouse click - negative point or keyboard shortcut "n"
 
 Time Series Segmentation :
 
@@ -62,8 +52,12 @@ Volume Segmentation :
 
 Reference :
 
-Example Data from in demo videos from,
+Example Data in the demo videos are from,
+
 Cell tracking challenge - https://celltrackingchallenge.net/ 
+
+and
+
 FlyEM project - https://www.janelia.org/project-team/flyem/hemibrain
 
 
