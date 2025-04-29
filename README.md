@@ -20,6 +20,10 @@ To install pytorch with your respective OS please visit - https://pytorch.org/ge
 
 Please refer https://github.com/facebookresearch/sam2
 
+3. Install napari
+
+python -m pip install "napari[all]"
+
 Following is a sample conda environment installation with the above pre-req 
 
     conda create -n samv2_env python=3.10
@@ -28,6 +32,8 @@ Following is a sample conda environment installation with the above pre-req
 
     git clone https://github.com/facebookresearch/sam2.git && cd sam2
     pip install -e .
+
+    python -m pip install "napari[all]"
 
     pip install napari-SAMV2
 
