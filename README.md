@@ -4,7 +4,6 @@ Napari plugin to use segment anything version 2.1 models from Meta.
 
 Plugin made for segmenting 3d volumetric data or 3d time series data.
 
-
 ----------------------------------
 
 ## Installation
