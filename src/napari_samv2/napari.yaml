@@ -1,4 +1,4 @@
-name: napari-SAMV2
+name: napari-samv2
 display_name: Segment Anything V2
 # use 'hidden' to remove plugin from napari hub search results
 visibility: public
