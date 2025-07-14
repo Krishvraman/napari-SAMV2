@@ -43,7 +43,7 @@ testing = [
 ]
 
 [project.entry-points."napari.manifest"]
-napari-SAMV2 = "napari_samv2:napari.yaml"
+napari-samv2  = "napari_samv2:napari.yaml"
 
 [project.urls]
 "Bug Tracker" = "https://github.com/Krishvraman/napari-SAMV2/issues"
