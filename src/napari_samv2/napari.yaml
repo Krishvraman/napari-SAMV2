@@ -1,14 +1,12 @@
 name: napari-samv2
-display_name: Segment Anything V2
-# use 'hidden' to remove plugin from napari hub search results
+display_name: napari-SAMV2
 visibility: public
-# see https://napari.org/stable/plugins/manifest.html for valid categories
 categories: ["Annotation", "Segmentation"]
 contributions:
   commands:
-    - id: napari-SAMV2.make_qwidget
+    - id: napari-samv2.make_qwidget
       python_name: napari_samv2:SAMV2_min
       title: SAM V2 plugin
   widgets:
-    - command: napari-SAMV2.make_qwidget
+    - command: napari-samv2.make_qwidget
       display_name: SAMV2
