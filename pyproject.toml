@@ -1,5 +1,5 @@
 [project]
-name = "napari-SAMV2"
+name = "napari-samv2"
 dynamic = ["version"]
 description = "Napari plugin for segment anything version 2 model from meta. Plugin primarily useful for segmenting 3d volumetric data or 3d time series data. "
 readme = "README.md"
